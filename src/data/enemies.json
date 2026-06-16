@@ -1,0 +1,47 @@
+[
+  {
+    "name": "Lothric Knight",
+    "type": "Enemy",
+    "hp": 550,
+    "locations": ["High Wall of Lothric", "Lothric Castle", "Grand Archives"],
+    "souls": 300,
+    "resistances": ["Magic", "Bleed"],
+    "weaknesses": ["Lightning", "Frost", "Strike"]
+  },
+  {
+    "name": "Silver Knight",
+    "type": "Enemy",
+    "hp": 740,
+    "locations": ["Anor Londo", "Irithyll of the Boreal Valley"],
+    "souls": 1500,
+    "resistances": ["Fire", "Slash", "Thrust"],
+    "weaknesses": ["Lightning", "Dark", "Strike", "Poison", "Toxic"]
+  },
+  {
+    "name": "Darkwraith",
+    "type": "Enemy",
+    "hp": 900,
+    "locations": ["Farron Keep", "High Wall of Lothric"],
+    "souls": 2500,
+    "resistances": ["Dark"],
+    "weaknesses": ["Lightning", "Fire", "Strike"]
+  },
+  {
+    "name": "Boreal Outrider Knight",
+    "type": "Enemy",
+    "hp": 1300,
+    "locations": ["Undead Settlement", "Road of Sacrifices", "Grand Archives"],
+    "souls": 3500,
+    "resistances": ["Frost", "Bleed", "Poison", "Toxic"],
+    "weaknesses": ["Fire", "Dark", "Strike"]
+  },
+  {
+    "name": "Lycanthrope",
+    "type": "Enemy",
+    "hp": 850,
+    "locations": ["Road of Sacrifices"],
+    "souls": 1000,
+    "resistances": ["Slash", "Thrust"],
+    "weaknesses": ["Fire", "Poison", "Toxic", "Bleed"]
+  }
+]

@@ -1,27 +1,29 @@
 # DS3DL - Game Modes Summary
 
-DS3DL is a client-side Wordle-like guessing game for Dark Souls III characters, bosses, and enemies. The game features two distinct modes.
+DS3DL is a client-side Wordle-like guessing game for Dark Souls III. The game is split into three separate daily challenges that reset automatically every 24 hours (UTC).
 
 ---
 
-## 1. Daily Challenge
-
-In the Daily Challenge, all players worldwide receive the exact same target character for the day.
-
-### How it Works
-* **Zero-Server Selection**: Rather than calling an API database, the game determines the character of the day using a deterministic pseudo-random number generator (PRNG) implemented in Javascript.
-* **UTC Sourced Seed**: The system hashes the current UTC date string (`YYYY-MM-DD`) into a 32-bit integer seed. This seed is passed to a Linear Congruential Generator (LCG) to select the character index from the dataset.
-* **Midnight Reset**: The challenge resets automatically at midnight UTC when the date string changes.
-* **Daily Persistence**: Guesses, game progress, and win states are saved in `localStorage` keyed by the date string. Refreshing the browser preserves the active daily progress without resetting.
-* **Streaks and Strengths**: Wins are integrated into the player's personal statistics card, calculating total plays, win percentage, guess distributions, and active streaks.
+## 1. Game 1: Enemy Guesser
+* **Target Pool**: Handpicked standard Dark Souls III enemies (e.g., Lothric Knight, Silver Knight, Darkwraith).
+* **Game Mechanics**: Players guess characters using autocomplete and receive dynamic color-coded feedback on six key attributes: Type, HP, Locations, Souls dropped, Resistances, and Weaknesses.
+* **Clues**: High/low arrows guide guesses for HP and Souls. Overlap statuses (Green = Exact, Yellow = Partial, Red = None) guide guesses for lists.
 
 ---
 
-## 2. Infinite Play
+## 2. Game 2: Boss Guesser
+* **Target Pool**: All major Dark Souls III bosses (e.g., Soul of Cinder, Slave Knight Gael, Sister Friede).
+* **Game Mechanics**: Identical comparative attribute grid checks as the Enemy Guesser, scaled for boss stats.
 
-Infinite Play allows players to practice or play through random characters without limit.
+---
 
-### How it Works
-* **Random Picking**: The system uses `Math.random()` to pick any character from the dataset.
-* **Isolated Progress**: State is saved under a separate namespace in local storage so that practicing in Infinite Play doesn't overwrite or conflict with the active Daily Challenge state.
-* **Next Round**: When players guess correctly or exhaust their attempt, they can hit **Next Character** to trigger a new random round.
+## 3. Game 3: NPC Dialogue Guesser
+* **Target Pool**: Key questline and vendor NPCs in Firelink Shrine and beyond.
+* **Game Mechanics**: Players read a deterministic, daily-seeded voice quote from the target NPC.
+* **Hints**: Guess history displays names and correctness. **If a player guesses incorrectly 5 times, a Hint card is revealed showing the target NPC's Location(s).**
+
+---
+
+## Shared Features
+* **Infinite Play**: Switch any game into Infinite Mode to practice random characters from that category.
+* **Stats Tracking**: Streaks and attempt distributions are saved and tracked independently for each of the three challenges in the browser's `localStorage`.

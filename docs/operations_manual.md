@@ -12,13 +12,13 @@ Ensure you have **Node.js** (v20.16.0 or newer) and **npm** installed on your sy
 
 ## 2. Running Locally
 
-To run the development server with Hot Module Replacement (HMR):
+To run the development server:
 
-1. Open a terminal and navigate to the project directory:
+1. Navigate to the project directory:
    ```bash
    cd ds3dl
    ```
-2. Install dependencies (if you haven't already):
+2. Install dependencies:
    ```bash
    npm install
    ```
@@ -26,68 +26,58 @@ To run the development server with Hot Module Replacement (HMR):
    ```bash
    npm run dev
    ```
-4. Open your browser and navigate to the URL printed in the terminal (typically `http://localhost:5173/`).
+4. Open `http://localhost:5173/` in your browser.
 
 ---
 
 ## 3. Building for Production
 
-To compile the application into optimized, static HTML, CSS, and JS:
+Compile the application into optimized, static HTML, CSS, and JS assets inside `/dist`:
 
 ```bash
 npm run build
 ```
 
-This generates a `dist/` directory at the project root containing all static assets. You can serve this directory with any basic web server.
+---
+
+## 4. Updating the Databases
+
+Data is separated into three JSON files under `src/data/`:
+
+* **Enemies** (`enemies.json`) & **Bosses** (`bosses.json`):
+  Follow this schema:
+  ```json
+  {
+    "name": "Character Name",
+    "type": "Enemy" | "Boss",
+    "hp": 550,
+    "locations": ["High Wall of Lothric"],
+    "souls": 300,
+    "resistances": ["Magic"],
+    "weaknesses": ["Strike"]
+  }
+  ```
+
+* **NPCs** (`npcs.json`):
+  Must include a list of iconic vocal quotes:
+  ```json
+  {
+    "name": "NPC Name",
+    "type": "NPC",
+    "hp": 100,
+    "locations": ["Firelink Shrine"],
+    "souls": 0,
+    "resistances": ["None"],
+    "weaknesses": ["Physical"],
+    "quotes": [
+      "Quote line one.",
+      "Quote line two."
+    ]
+  }
+  ```
 
 ---
 
-## 4. Updating the Character Database
+## 5. Publishing
 
-To add, edit, or remove characters from the game:
-
-1. Open [characters.json](file:///c:/Users/miste/GitHub/ds3dl/ds3dl/src/data/characters.json).
-2. Maintain the following schema structure for each item:
-   ```json
-   {
-     "name": "Character Name",
-     "type": "Boss" | "NPC" | "Enemy",
-     "hp": 1234,
-     "locations": ["Location One", "Location Two"],
-     "souls": 5000,
-     "resistances": ["Slash", "Fire"],
-     "weaknesses": ["Strike", "Frost"]
-   }
-   ```
-3. Save the file. The autocomplete list and game selection pool will automatically update on the next build.
-
----
-
-## 5. Publishing and Hosting
-
-Since the app has no backend, hosting is **100% free** using static hosting services.
-
-### Option A: GitHub Pages (Recommended)
-1. Install the `gh-pages` package:
-   ```bash
-   npm install -D gh-pages
-   ```
-2. Add deploy scripts to your `package.json`:
-   ```json
-   "scripts": {
-     "predeploy": "npm run build",
-     "deploy": "gh-pages -d dist"
-   }
-   ```
-3. Run the deployment script to compile and push to your `gh-pages` branch:
-   ```bash
-   npm run deploy
-   ```
-
-### Option B: Vercel or Cloudflare Pages
-1. Connect your GitHub repository to **Vercel** or **Cloudflare Pages**.
-2. Configure the build settings:
-   * **Framework Preset**: Vite / Vue
-   * **Build Command**: `npm run build`
-   * **Output Directory**: `dist`
-3. Click deploy. It will rebuild automatically every time you push code updates to your main branch.
+The static bundle in `dist/` can be hosted on free services (e.g., GitHub Pages, Cloudflare Pages, Vercel) as explained in Option A/B of this manual.

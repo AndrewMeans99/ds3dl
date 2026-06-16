@@ -1,10 +1,12 @@
 <script setup>
-import { ref, onMounted } from 'vue';
+import { ref, onMounted, watch } from 'vue';
 import Game from './components/Game.vue';
 import { Info, BarChart2, X } from 'lucide-vue-next';
 import { loadStats } from './utils/daily';
 
 const mode = ref('daily'); // 'daily' or 'infinite'
+const subGame = ref('enemy'); // 'enemy', 'boss', or 'npc'
+
 const showHelpModal = ref(false);
 const showStatsModal = ref(false);
 const stats = ref({
@@ -19,17 +21,27 @@ function toggleMode(newMode) {
   mode.value = newMode;
 }
 
+function selectSubGame(newSubGame) {
+  subGame.value = newSubGame;
+}
+
 function openHelp() {
   showHelpModal.value = true;
 }
 
 function openStats() {
-  stats.value = loadStats();
+  stats.value = loadStats(subGame.value);
   showStatsModal.value = true;
 }
 
+// Watch active sub-game to sync stats if stats modal is open
+watch(subGame, () => {
+  if (showStatsModal.value) {
+    stats.value = loadStats(subGame.value);
+  }
+});
+
 onMounted(() => {
-  // First time visitor gets help modal
   const hasVisited = localStorage.getItem('ds3dl_visited');
   if (!hasVisited) {
     showHelpModal.value = true;
@@ -74,10 +86,36 @@ onMounted(() => {
       </button>
     </div>
 
+    <!-- Sub-Game Switcher tabs -->
+    <div class="subgame-tabs">
+      <button 
+        class="tab-btn" 
+        :class="{ active: subGame === 'enemy' }" 
+        @click="selectSubGame('enemy')"
+      >
+        Enemies
+      </button>
+      <button 
+        class="tab-btn" 
+        :class="{ active: subGame === 'boss' }" 
+        @click="selectSubGame('boss')"
+      >
+        Bosses
+      </button>
+      <button 
+        class="tab-btn" 
+        :class="{ active: subGame === 'npc' }" 
+        @click="selectSubGame('npc')"
+      >
+        NPC Dialogue
+      </button>
+    </div>
+
     <!-- Game Card Component -->
     <main class="game-card">
       <Game 
         :mode="mode" 
+        :sub-game="subGame"
         @show-help="openHelp" 
         @show-stats="openStats" 
       />
@@ -91,22 +129,21 @@ onMounted(() => {
         </button>
         <h2 class="modal-title">How To Play</h2>
         <div class="help-section">
-          <p>Guess the Dark Souls 3 boss, NPC, or enemy character. With each guess, the color of the tiles will change to show how close your guess was to the target.</p>
+          <p>Test your Dark Souls III knowledge across three distinct games!</p>
           
-          <h4>Property Rules:</h4>
+          <h4 style="margin-top: 15px;">1. Enemies & Bosses Games</h4>
+          <p>Guess the target character based on standard feedback attributes. The tile colors show your proximity to the target:</p>
           <ul>
-            <li><strong>Type:</strong> Must match exactly (Boss, NPC, Enemy).</li>
-            <li><strong>HP / Souls:</strong> Shows ↑ if target has higher value, ↓ if lower value.</li>
-            <li><strong>Location / Resistances / Weaknesses:</strong> 
-              <ul>
-                <li><span style="color: var(--color-green); font-weight: bold;">Green</span>: Exact match.</li>
-                <li><span style="color: var(--color-yellow); font-weight: bold;">Yellow</span>: Partial match (shares some overlaps).</li>
-                <li><span style="color: var(--color-red); font-weight: bold;">Red</span>: No match.</li>
-              </ul>
-            </li>
+            <li><strong>Type:</strong> Exact match.</li>
+            <li><strong>HP / Souls:</strong> Shows ↑ if target has higher value, ↓ if lower.</li>
+            <li><strong>Locations / Resistances / Weaknesses:</strong> Green (exact), Yellow (partial overlap), Red (no overlap).</li>
           </ul>
 
-          <h4>Color Codes Example:</h4>
+          <h4 style="margin-top: 15px;">2. NPC Dialogue Game</h4>
+          <p>Read the dialogue quote displayed at the top and guess which NPC spoke it! 
+             Guesses are recorded as a history log. **If you guess incorrectly 5 times, their location(s) will be revealed as a hint!**</p>
+
+          <h4 style="margin-top: 20px;">Color Codes:</h4>
           <div class="help-grid">
             <div class="help-item">
               <span class="help-badge guess-correct">Green</span>
@@ -114,7 +151,7 @@ onMounted(() => {
             </div>
             <div class="help-item">
               <span class="help-badge guess-partial">Yellow</span>
-              <span>Partial match (overlap)</span>
+              <span>Partial match</span>
             </div>
             <div class="help-item">
               <span class="help-badge guess-incorrect">Red</span>
@@ -132,6 +169,9 @@ onMounted(() => {
           <X size="24" />
         </button>
         <h2 class="modal-title">Your Statistics</h2>
+        <p style="color: var(--text-gold); text-transform: uppercase; font-size: 0.9rem; font-family: var(--font-heading); margin-top: -10px; margin-bottom: 20px;">
+          Mode: {{ subGame === 'enemy' ? 'Enemies' : (subGame === 'boss' ? 'Bosses' : 'NPC Dialogue') }}
+        </p>
         
         <div class="stats-grid">
           <div class="stat-item">
@@ -182,5 +222,43 @@ onMounted(() => {
 <style scoped>
 #main-layout {
   min-height: 100%;
+}
+
+.subgame-tabs {
+  display: flex;
+  justify-content: center;
+  gap: 0;
+  margin-bottom: 15px;
+  background: var(--bg-card);
+  border: 1px solid var(--border-dark);
+  border-radius: 6px;
+  padding: 4px;
+}
+
+.tab-btn {
+  background: transparent;
+  border: none;
+  color: var(--text-secondary);
+  padding: 10px 20px;
+  font-family: var(--font-heading);
+  font-size: 0.85rem;
+  letter-spacing: 1px;
+  cursor: pointer;
+  flex: 1;
+  text-align: center;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+  text-transform: uppercase;
+}
+
+.tab-btn.active {
+  background: var(--bg-darker);
+  color: var(--text-gold);
+  border: 1px solid var(--border-gold-glow);
+}
+
+.tab-btn:hover:not(.active) {
+  color: var(--text-primary);
+  background: rgba(255,255,255,0.02);
 }
 </style>

@@ -12,11 +12,12 @@ export function getSeededRandom(seed) {
   };
 }
 
-// Generate a seed integer from a YYYY-MM-DD date string
-export function getSeedFromDate(dateStr) {
+// Generate a seed integer from a YYYY-MM-DD date string + optional modifier
+export function getSeedFromDate(dateStr, modifier = 0) {
   let hash = 0;
-  for (let i = 0; i < dateStr.length; i++) {
-    const char = dateStr.charCodeAt(i);
+  const combined = dateStr + modifier.toString();
+  for (let i = 0; i < combined.length; i++) {
+    const char = combined.charCodeAt(i);
     hash = (hash << 5) - hash + char;
     hash |= 0; // Convert to 32bit integer
   }
@@ -32,18 +33,28 @@ export function getTodayDateString() {
   return `${year}-${month}-${day}`;
 }
 
-// Get the daily character based on UTC date
-export function getDailyCharacter(characters, dateStr) {
-  const seed = getSeedFromDate(dateStr);
+// Get the daily character based on UTC date and game type
+export function getDailyCharacter(characters, dateStr, subGame) {
+  // Use different modifiers for seed to avoid picking same index across modes
+  const modMap = { enemy: 100, boss: 200, npc: 300 };
+  const seed = getSeedFromDate(dateStr, modMap[subGame] || 0);
   const random = getSeededRandom(seed);
-  // Pick an index deterministically
+  
   const index = Math.floor(random() * characters.length);
-  return characters[index];
+  const target = characters[index];
+  
+  // If it's an NPC, pick a quote deterministically
+  if (subGame === 'npc' && target.quotes && target.quotes.length > 0) {
+    const quoteIndex = Math.floor(random() * target.quotes.length);
+    target.selectedQuote = target.quotes[quoteIndex];
+  }
+  
+  return target;
 }
 
-// LocalStorage helpers for Daily Mode
-export function loadDailyState(dateStr) {
-  const data = localStorage.getItem(`ds3dl_daily_${dateStr}`);
+// LocalStorage helpers for Daily Mode (partitioned by subGame)
+export function loadDailyState(dateStr, subGame) {
+  const data = localStorage.getItem(`ds3dl_daily_${subGame}_${dateStr}`);
   if (data) {
     try {
       return JSON.parse(data);
@@ -59,13 +70,13 @@ export function loadDailyState(dateStr) {
   };
 }
 
-export function saveDailyState(dateStr, state) {
-  localStorage.setItem(`ds3dl_daily_${dateStr}`, JSON.stringify(state));
+export function saveDailyState(dateStr, subGame, state) {
+  localStorage.setItem(`ds3dl_daily_${subGame}_${dateStr}`, JSON.stringify(state));
 }
 
-// LocalStorage helpers for Infinite Mode
-export function loadInfiniteState() {
-  const data = localStorage.getItem('ds3dl_infinite_state');
+// LocalStorage helpers for Infinite Mode (partitioned by subGame)
+export function loadInfiniteState(subGame) {
+  const data = localStorage.getItem(`ds3dl_infinite_${subGame}_state`);
   if (data) {
     try {
       return JSON.parse(data);
@@ -81,13 +92,13 @@ export function loadInfiniteState() {
   };
 }
 
-export function saveInfiniteState(state) {
-  localStorage.setItem('ds3dl_infinite_state', JSON.stringify(state));
+export function saveInfiniteState(subGame, state) {
+  localStorage.setItem(`ds3dl_infinite_${subGame}_state`, JSON.stringify(state));
 }
 
-// Statistics helpers
-export function loadStats() {
-  const data = localStorage.getItem('ds3dl_stats');
+// Statistics helpers (partitioned by subGame)
+export function loadStats(subGame) {
+  const data = localStorage.getItem(`ds3dl_stats_${subGame}`);
   if (data) {
     try {
       return JSON.parse(data);
@@ -104,12 +115,12 @@ export function loadStats() {
   };
 }
 
-export function saveStats(stats) {
-  localStorage.setItem('ds3dl_stats', JSON.stringify(stats));
+export function saveStats(subGame, stats) {
+  localStorage.setItem(`ds3dl_stats_${subGame}`, JSON.stringify(stats));
 }
 
-export function updateStats(isWon, guessCount) {
-  const stats = loadStats();
+export function updateStats(subGame, isWon, guessCount) {
+  const stats = loadStats(subGame);
   stats.gamesPlayed += 1;
   
   if (isWon) {
@@ -125,6 +136,6 @@ export function updateStats(isWon, guessCount) {
     stats.currentStreak = 0;
   }
   
-  saveStats(stats);
+  saveStats(subGame, stats);
   return stats;
 }

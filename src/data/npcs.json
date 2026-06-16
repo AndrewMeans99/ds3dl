@@ -1,0 +1,121 @@
+[
+  {
+    "name": "Fire Keeper",
+    "type": "NPC",
+    "hp": 100,
+    "locations": ["Firelink Shrine"],
+    "souls": 0,
+    "resistances": ["None"],
+    "weaknesses": ["Physical"],
+    "quotes": [
+      "Welcome to the bonfire, Unkindled One.",
+      "Touch the darkness within me.",
+      "Ashen One, hear my voice, still for me...",
+      "Farewell, Ashen One. Mayst thou thy peace discover."
+    ]
+  },
+  {
+    "name": "Shrine Handmaid",
+    "type": "NPC",
+    "hp": 150,
+    "locations": ["Firelink Shrine", "Untended Graves"],
+    "souls": 0,
+    "resistances": ["None"],
+    "weaknesses": ["Physical"],
+    "quotes": [
+      "Ashen One, what is thy pleasure?",
+      "Overbeck me with souls, and I shall provide thee with key and trinket.",
+      "A pleasure to do business, Unkindled One."
+    ]
+  },
+  {
+    "name": "Blacksmith Andre",
+    "type": "NPC",
+    "hp": 9999,
+    "locations": ["Firelink Shrine"],
+    "souls": 0,
+    "resistances": ["Strike", "Slash", "Thrust", "Magic", "Fire", "Lightning", "Dark"],
+    "weaknesses": ["None"],
+    "quotes": [
+      "Prithee, be careful. I don't want to see my work squandered.",
+      "Overwork a weapon, and it'll break.",
+      "All smithing requires is a hammer, and an anvil, and some elbow grease.",
+      "Don't get yourself killed. My smithy's always open."
+    ]
+  },
+  {
+    "name": "Greirat of the Undead Settlement",
+    "type": "NPC",
+    "hp": 530,
+    "locations": ["Firelink Shrine", "High Wall of Lothric", "Undead Settlement", "Irithyll of the Boreal Valley", "Grand Archives"],
+    "souls": 0,
+    "resistances": ["Bleed"],
+    "weaknesses": ["Strike", "Slash", "Thrust"],
+    "quotes": [
+      "I'm only a thief, but I have my pride.",
+      "Goodbye, and stay safe. Don't go hollow on me.",
+      "Heavens, she was already dead...",
+      "If I don't make it back, well, you can have my ashes."
+    ]
+  },
+  {
+    "name": "Siegward of Catarina",
+    "type": "NPC",
+    "hp": 3000,
+    "locations": ["Undead Settlement", "Cathedral of the Deep", "Irithyll Dungeon", "Profaned Capital"],
+    "souls": 1000,
+    "resistances": ["Slash", "Thrust", "Strike", "Bleed"],
+    "weaknesses": ["Poison", "Toxic", "Dark"],
+    "quotes": [
+      "Long may the sun shine!",
+      "Hmm... Mmm... Oh, pardon me, I was absorbed in thought.",
+      "No! You should have waited! Well, it's too late now. I, Siegward of the Knights of Catarina, fight by your side!",
+      "To your valour, my sword, and our victory together. Long may the sun shine!"
+    ]
+  },
+  {
+    "name": "Unbreakable Patches",
+    "type": "NPC",
+    "hp": 1100,
+    "locations": ["Firelink Shrine", "Cathedral of the Deep", "The Dreg Heap", "Ringed City"],
+    "souls": 1000,
+    "resistances": ["Physical", "Fire"],
+    "weaknesses": ["Lightning", "Dark"],
+    "quotes": [
+      "We're friends, aren't we? You and I?",
+      "Every age, it seems, is tainted by the greed of men.",
+      "Thought you could outsmart an onion?",
+      "You got me, fair and square. No hard feelings, eh?"
+    ]
+  },
+  {
+    "name": "Karla",
+    "type": "NPC",
+    "hp": 600,
+    "locations": ["Firelink Shrine", "Irithyll Dungeon"],
+    "souls": 1000,
+    "resistances": ["Dark"],
+    "weaknesses": ["Physical"],
+    "quotes": [
+      "Do not be afraid of the dark, my dear.",
+      "I am a creature of the dark. There is nothing to fear in what is natural.",
+      "Oh, are you back? You really are a strange one.",
+      "Humans are creatures of the dark. Thus, we find comfort in it."
+    ]
+  },
+  {
+    "name": "Cornyx of the Great Swamp",
+    "type": "NPC",
+    "hp": 700,
+    "locations": ["Firelink Shrine", "Undead Settlement"],
+    "souls": 1000,
+    "resistances": ["Fire"],
+    "weaknesses": ["Frost", "Dark"],
+    "quotes": [
+      "Pyromancy is the art of casting fire.",
+      "Fire is a living thing. It must be treated with respect.",
+      "Welcome back. The swamp is ever-inviting.",
+      "May the flame guide thee."
+    ]
+  }
+]

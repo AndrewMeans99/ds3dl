@@ -1,28 +1,42 @@
 # DS3DL - Tech Stack Summary
 
-The DS3DL web application is engineered as a lightweight, performant single-page application (SPA) with zero backend runtime dependencies. This architectural choice makes hosting completely free and simple.
+The DS3DL web application is engineered as a lightweight, performant single-page application (SPA) with zero backend runtime dependencies.
 
 ---
 
 ## 1. Core Frameworks & Bundlers
 
-* **Vue 3**: Implemented using Vue 3 Single File Components (SFC) with the modern `<script setup>` syntax for reactive state management, autocomplete lists, and modal overlays.
-* **Vite v5**: Utilized for asset compiling, Hot Module Replacement (HMR) during development, and building optimized static production bundles.
-* **Vanilla CSS**: Global styling sheets with CSS variables to handle the Dark Souls theme tokens (charcoal background, gold text, amber glows, and responsive grids).
+* **Vue 3**: Reactive state handling using `<script setup>` SFCs. Toggles modes and sub-games seamlessly.
+* **Vite v5**: Fast asset bundler and compile utility.
+* **Vanilla CSS**: Employs design tokens for custom scrollbars, ember particles, and split parchment interfaces.
 
 ---
 
-## 2. Icons & Typography
+## 2. Split JSON Database
 
-* **Lucide Vue**: Vector icon library (`@lucide/vue`) for clean iconography (stats, instructions, share, refresh, close).
-* **Google Fonts**:
-  * **Cinzel**: Used for headings and title states to capture the gothic/fantasy aesthetic of the Dark Souls series.
-  * **Inter**: Used for high-readability body text, tables, and statistics.
+Data is split into three modular JSON files under `src/data/`:
+1. **`enemies.json`**: Standard mobs and environmental enemies.
+2. **`bosses.json`**: Major game bosses.
+3. **`npcs.json`**: NPCs containing quotes arrays used for Game 3:
+   ```json
+   {
+     "name": "Siegward of Catarina",
+     "type": "NPC",
+     "hp": 3000,
+     "locations": ["Undead Settlement"],
+     "quotes": [
+       "Long may the sun shine!",
+       "Hmm... Mmm..."
+     ]
+   }
+   ```
 
 ---
 
-## 3. Data & Storage Model
+## 3. Storage & State Management
 
-* **Offline JSON Dataset** (`src/data/characters.json`): Stores the name, HP pool, type classification (Boss, NPC, Enemy), location lists, soul drops, resistances, and weaknesses for all characters.
-* **Seeded PRNG** (`src/utils/daily.js`): Uses a Linear Congruential Generator (LCG) algorithm to ensure deterministic date-based selections.
-* **Browser localStorage**: Saves game state and lifetime statistics directly on the client's browser, eliminating the need for accounts or dynamic databases.
+* **`daily.js` Utilities**: Deterministic PRNG using UTC seed generation.
+* **LocalStorage Keys**:
+  * Daily game progress: `ds3dl_daily_[gameType]_[dateStr]`
+  * Infinite game progress: `ds3dl_infinite_[gameType]_state`
+  * Personal statistics: `ds3dl_stats_[gameType]`
