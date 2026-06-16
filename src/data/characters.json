@@ -1,0 +1,326 @@
+[
+  {
+    "name": "Iudex Gundyr",
+    "type": "Boss",
+    "hp": 1037,
+    "locations": ["Cemetery of Ash"],
+    "souls": 3000,
+    "resistances": ["Dark"],
+    "weaknesses": ["Fire", "Lightning", "Strike"]
+  },
+  {
+    "name": "Vordt of the Boreal Valley",
+    "type": "Boss",
+    "hp": 1328,
+    "locations": ["High Wall of Lothric"],
+    "souls": 3000,
+    "resistances": ["Slash", "Thrust", "Strike"],
+    "weaknesses": ["Dark", "Fire"]
+  },
+  {
+    "name": "Curse-Rotted Greatwood",
+    "type": "Boss",
+    "hp": 5405,
+    "locations": ["Undead Settlement"],
+    "souls": 7000,
+    "resistances": ["Slash", "Thrust", "Magic", "Lightning", "Dark"],
+    "weaknesses": ["Fire", "Slash"]
+  },
+  {
+    "name": "Crystal Sage",
+    "type": "Boss",
+    "hp": 2723,
+    "locations": ["Road of Sacrifices", "Grand Archives"],
+    "souls": 8000,
+    "resistances": ["Magic"],
+    "weaknesses": ["Physical", "Poison", "Toxic", "Bleed"]
+  },
+  {
+    "name": "Abyss Watchers",
+    "type": "Boss",
+    "hp": 1548,
+    "locations": ["Farron Keep"],
+    "souls": 18000,
+    "resistances": ["Dark", "Bleed"],
+    "weaknesses": ["Lightning", "Stagger"]
+  },
+  {
+    "name": "Deacons of the Deep",
+    "type": "Boss",
+    "hp": 4099,
+    "locations": ["Cathedral of the Deep"],
+    "souls": 13000,
+    "resistances": ["Magic", "Dark", "Bleed"],
+    "weaknesses": ["Physical", "Hollow Slayer"]
+  },
+  {
+    "name": "High Lord Wolnir",
+    "type": "Boss",
+    "hp": 15071,
+    "locations": ["Catacombs of Carthus"],
+    "souls": 22000,
+    "resistances": ["Dark", "Bleed", "Poison", "Toxic"],
+    "weaknesses": ["Breakable Bracelets", "Slash"]
+  },
+  {
+    "name": "Old Demon King",
+    "type": "Boss",
+    "hp": 5301,
+    "locations": ["Smouldering Lake"],
+    "souls": 25000,
+    "resistances": ["Fire", "Pyromancy", "Bleed", "Poison", "Toxic"],
+    "weaknesses": ["Dark", "Black Knight Weapons"]
+  },
+  {
+    "name": "Pontiff Sulyvahn",
+    "type": "Boss",
+    "hp": 5106,
+    "locations": ["Irithyll of the Boreal Valley"],
+    "souls": 28000,
+    "resistances": ["Bleed", "Poison", "Toxic"],
+    "weaknesses": ["Fire", "Lightning", "Thrust", "Parry"]
+  },
+  {
+    "name": "Aldrich, Devourer of Gods",
+    "type": "Boss",
+    "hp": 4727,
+    "locations": ["Anor Londo"],
+    "souls": 50000,
+    "resistances": ["Magic", "Dark"],
+    "weaknesses": ["Fire", "Lightning", "Farron Greatsword"]
+  },
+  {
+    "name": "Yhorm the Giant",
+    "type": "Boss",
+    "hp": 27711,
+    "locations": ["Profaned Capital"],
+    "souls": 36000,
+    "resistances": ["Fire", "Slash", "Thrust", "Strike", "Magic", "Dark"],
+    "weaknesses": ["Storm Ruler", "Lightning"]
+  },
+  {
+    "name": "Dancer of the Boreal Valley",
+    "type": "Boss",
+    "hp": 5111,
+    "locations": ["High Wall of Lothric"],
+    "souls": 60000,
+    "resistances": ["Fire", "Slash", "Thrust", "Strike"],
+    "weaknesses": ["Dark", "Lightning", "Bleed"]
+  },
+  {
+    "name": "Dragonslayer Armour",
+    "type": "Boss",
+    "hp": 4581,
+    "locations": ["Lothric Castle"],
+    "souls": 64000,
+    "resistances": ["Dark", "Lightning", "Bleed", "Poison", "Toxic"],
+    "weaknesses": ["Frost", "Strike"]
+  },
+  {
+    "name": "Oceiros, the Consumed King",
+    "type": "Boss",
+    "hp": 8040,
+    "locations": ["Consumed King's Garden"],
+    "souls": 58000,
+    "resistances": ["Magic", "Bleed"],
+    "weaknesses": ["Lightning", "Frost", "Strike"]
+  },
+  {
+    "name": "Champion Gundyr",
+    "type": "Boss",
+    "hp": 4956,
+    "locations": ["Untended Graves"],
+    "souls": 60000,
+    "resistances": ["Dark", "Bleed"],
+    "weaknesses": ["Lightning", "Strike", "Parry"]
+  },
+  {
+    "name": "Lothric, Younger Prince",
+    "type": "Boss",
+    "hp": 7713,
+    "locations": ["Grand Archives"],
+    "souls": 85000,
+    "resistances": ["Dark"],
+    "weaknesses": ["Lightning", "Frost", "Slash", "Thrust"]
+  },
+  {
+    "name": "Ancient Wyvern",
+    "type": "Boss",
+    "hp": 7873,
+    "locations": ["Archdragon Peak"],
+    "souls": 70000,
+    "resistances": ["Fire", "Slash", "Thrust", "Strike"],
+    "weaknesses": ["Plunge Attack", "Lightning"]
+  },
+  {
+    "name": "Nameless King",
+    "type": "Boss",
+    "hp": 11624,
+    "locations": ["Archdragon Peak"],
+    "souls": 80000,
+    "resistances": ["Lightning", "Fire"],
+    "weaknesses": ["Fire", "Dark"]
+  },
+  {
+    "name": "Soul of Cinder",
+    "type": "Boss",
+    "hp": 10766,
+    "locations": ["Kiln of the First Flame"],
+    "souls": 100000,
+    "resistances": ["Fire"],
+    "weaknesses": ["Lightning", "Dark", "Frost"]
+  },
+  {
+    "name": "Sister Friede",
+    "type": "Boss",
+    "hp": 18881,
+    "locations": ["Painted World of Ariandel"],
+    "souls": 72000,
+    "resistances": ["Frost", "Magic"],
+    "weaknesses": ["Dark", "Fire", "Slash", "Thrust", "Bleed"]
+  },
+  {
+    "name": "Demon Prince",
+    "type": "Boss",
+    "hp": 12061,
+    "locations": ["The Dreg Heap"],
+    "souls": 100000,
+    "resistances": ["Fire", "Magic", "Lightning", "Dark"],
+    "weaknesses": ["Black Knight Weapons", "Bleed", "Slash", "Thrust"]
+  },
+  {
+    "name": "Darkeater Midir",
+    "type": "Boss",
+    "hp": 15895,
+    "locations": ["Ringed City"],
+    "souls": 150000,
+    "resistances": ["Fire", "Magic", "Dark", "Slash", "Thrust", "Strike", "Bleed", "Poison", "Toxic"],
+    "weaknesses": ["Lightning", "Farron Greatsword"]
+  },
+  {
+    "name": "Slave Knight Gael",
+    "type": "Boss",
+    "hp": 15037,
+    "locations": ["Filianore's Rest", "Ringed City"],
+    "souls": 120000,
+    "resistances": ["Slash", "Thrust", "Dark", "Bleed"],
+    "weaknesses": ["Strike", "Frost", "Hollow Slayer", "Poison", "Toxic"]
+  },
+  {
+    "name": "Fire Keeper",
+    "type": "NPC",
+    "hp": 100,
+    "locations": ["Firelink Shrine"],
+    "souls": 0,
+    "resistances": ["None"],
+    "weaknesses": ["Physical"]
+  },
+  {
+    "name": "Shrine Handmaid",
+    "type": "NPC",
+    "hp": 150,
+    "locations": ["Firelink Shrine", "Untended Graves"],
+    "souls": 0,
+    "resistances": ["None"],
+    "weaknesses": ["Physical"]
+  },
+  {
+    "name": "Blacksmith Andre",
+    "type": "NPC",
+    "hp": 9999,
+    "locations": ["Firelink Shrine"],
+    "souls": 0,
+    "resistances": ["Strike", "Slash", "Thrust", "Magic", "Fire", "Lightning", "Dark"],
+    "weaknesses": ["None"]
+  },
+  {
+    "name": "Greirat of the Undead Settlement",
+    "type": "NPC",
+    "hp": 530,
+    "locations": ["Firelink Shrine", "High Wall of Lothric", "Undead Settlement", "Irithyll of the Boreal Valley", "Grand Archives"],
+    "souls": 0,
+    "resistances": ["Bleed"],
+    "weaknesses": ["Strike", "Slash", "Thrust"]
+  },
+  {
+    "name": "Siegward of Catarina",
+    "type": "NPC",
+    "hp": 3000,
+    "locations": ["Undead Settlement", "Cathedral of the Deep", "Irithyll Dungeon", "Profaned Capital"],
+    "souls": 1000,
+    "resistances": ["Slash", "Thrust", "Strike", "Bleed"],
+    "weaknesses": ["Poison", "Toxic", "Dark"]
+  },
+  {
+    "name": "Unbreakable Patches",
+    "type": "NPC",
+    "hp": 1100,
+    "locations": ["Firelink Shrine", "Cathedral of the Deep", "The Dreg Heap", "Ringed City"],
+    "souls": 1000,
+    "resistances": ["Physical", "Fire"],
+    "weaknesses": ["Lightning", "Dark"]
+  },
+  {
+    "name": "Karla",
+    "type": "NPC",
+    "hp": 600,
+    "locations": ["Firelink Shrine", "Irithyll Dungeon"],
+    "souls": 1000,
+    "resistances": ["Dark"],
+    "weaknesses": ["Physical"]
+  },
+  {
+    "name": "Cornyx of the Great Swamp",
+    "type": "NPC",
+    "hp": 700,
+    "locations": ["Firelink Shrine", "Undead Settlement"],
+    "souls": 1000,
+    "resistances": ["Fire"],
+    "weaknesses": ["Frost", "Dark"]
+  },
+  {
+    "name": "Lothric Knight",
+    "type": "Enemy",
+    "hp": 550,
+    "locations": ["High Wall of Lothric", "Lothric Castle", "Grand Archives"],
+    "souls": 300,
+    "resistances": ["Magic", "Bleed"],
+    "weaknesses": ["Lightning", "Frost", "Strike"]
+  },
+  {
+    "name": "Silver Knight",
+    "type": "Enemy",
+    "hp": 740,
+    "locations": ["Anor Londo", "Irithyll of the Boreal Valley"],
+    "souls": 1500,
+    "resistances": ["Fire", "Slash", "Thrust"],
+    "weaknesses": ["Lightning", "Dark", "Strike", "Poison", "Toxic"]
+  },
+  {
+    "name": "Darkwraith",
+    "type": "Enemy",
+    "hp": 900,
+    "locations": ["Farron Keep", "High Wall of Lothric"],
+    "souls": 2500,
+    "resistances": ["Dark"],
+    "weaknesses": ["Lightning", "Fire", "Strike"]
+  },
+  {
+    "name": "Boreal Outrider Knight",
+    "type": "Enemy",
+    "hp": 1300,
+    "locations": ["Undead Settlement", "Road of Sacrifices", "Grand Archives"],
+    "souls": 3500,
+    "resistances": ["Frost", "Bleed", "Poison", "Toxic"],
+    "weaknesses": ["Fire", "Dark", "Strike"]
+  },
+  {
+    "name": "Lycanthrope",
+    "type": "Enemy",
+    "hp": 850,
+    "locations": ["Road of Sacrifices"],
+    "souls": 1000,
+    "resistances": ["Slash", "Thrust"],
+    "weaknesses": ["Fire", "Poison", "Toxic", "Bleed"]
+  }
+]
