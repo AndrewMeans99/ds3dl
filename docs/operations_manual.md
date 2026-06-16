@@ -78,6 +78,17 @@ Data is separated into three JSON files under `src/data/`:
 
 ---
 
-## 5. Publishing
+## 5. Publishing to GitHub Pages
 
-The static bundle in `dist/` can be hosted on free services (e.g., GitHub Pages, Cloudflare Pages, Vercel) as explained in Option A/B of this manual.
+The application is deployed using the built-in `gh-pages` script:
+
+1. Run the deploy task:
+   ```bash
+   npm run deploy
+   ```
+   *Note: This automatically triggers `npm run build` and uploads the compiled bundle in `dist/` directly to your repository's `gh-pages` branch.*
+
+2. Ensure GitHub Pages is enabled in your GitHub Repository Settings:
+   * Go to **Settings** > **Pages**.
+   * Under **Build and deployment**, select **Deploy from a branch** and set the source branch to `gh-pages` (Folder: `/ (root)`).
+   * Save settings. Your site will be online at: `https://<your-username>.github.io/ds3dl/`.
