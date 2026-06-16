@@ -238,30 +238,30 @@ body {
 .guesses-table {
   width: 100%;
   border-collapse: separate;
-  border-spacing: 8px;
+  border-spacing: 5px;
   margin-top: 25px;
-  overflow-x: auto;
-  display: block;
-}
-
-.guesses-table thead, 
-.guesses-table tbody {
-  display: table;
-  width: 100%;
+  table-layout: fixed;
 }
 
 .guesses-table th {
   font-family: var(--font-heading);
   text-transform: uppercase;
-  font-size: 0.85rem;
+  font-size: 0.75rem;
   color: var(--text-gold);
   letter-spacing: 1px;
-  padding: 10px 5px;
+  padding: 8px 2px;
   text-align: center;
 }
 
 .guess-row {
   animation: slideIn 0.5s ease forwards;
+}
+
+.guess-row-win .guess-cell {
+  background-color: rgba(46, 204, 113, 0.25) !important;
+  border-color: var(--color-green) !important;
+  box-shadow: 0 0 10px rgba(46, 204, 113, 0.3);
+  text-shadow: 0 0 8px rgba(255, 255, 255, 0.6);
 }
 
 @keyframes slideIn {
@@ -278,23 +278,23 @@ body {
 .guess-cell {
   background: var(--bg-darker);
   border: 1px solid var(--border-dark);
-  padding: 12px 8px;
+  padding: 8px 4px;
   text-align: center;
-  font-size: 0.9rem;
+  font-size: 0.72rem;
   font-weight: 500;
-  min-width: 80px;
   border-radius: 4px;
   transition: all 0.3s ease;
   position: relative;
   vertical-align: middle;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
 }
 
 .guess-cell-name {
   font-family: var(--font-heading);
   font-weight: 700;
-  text-align: left;
-  padding-left: 15px;
-  min-width: 130px;
+  text-align: center;
+  font-size: 0.75rem;
 }
 
 .guess-correct {

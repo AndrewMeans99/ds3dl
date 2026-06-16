@@ -270,6 +270,15 @@ onMounted(() => {
     <!-- Guesses history list -->
     <div v-if="guesses.length > 0" style="overflow-x: auto;">
       <table class="guesses-table">
+        <colgroup>
+          <col style="width: 16%;" />
+          <col style="width: 9%;" />
+          <col style="width: 10%;" />
+          <col style="width: 25%;" />
+          <col style="width: 10%;" />
+          <col style="width: 15%;" />
+          <col style="width: 15%;" />
+        </colgroup>
         <thead>
           <tr>
             <th>Name</th>
@@ -282,8 +291,8 @@ onMounted(() => {
           </tr>
         </thead>
         <tbody>
-          <tr v-for="guess in guesses" :key="guess.name" class="guess-row">
-            <td class="guess-cell guess-cell-name guess-incorrect" :class="{ 'guess-correct': guess.isCorrect }">
+          <tr v-for="guess in guesses" :key="guess.name" class="guess-row" :class="{ 'guess-row-win': guess.isCorrect }">
+            <td class="guess-cell guess-cell-name" :class="guess.isCorrect ? 'guess-correct' : 'guess-incorrect'">
               {{ guess.name }}
             </td>
             <td class="guess-cell" :class="'guess-' + guess.type.status">
